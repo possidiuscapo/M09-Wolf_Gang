@@ -1,0 +1,328 @@
+$clr-primaire: #444;
+$clr-fond-second: #333;
+$clr-second: #ff9d00;
+$clr-fond: #fff;
+$clr-para: #c5c5c5;
+
+@mixin flex-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@mixin center {
+    margin-inline: auto;
+    width: 90%;
+}
+
+@mixin font {
+    font-family: "Bodega Sans", sans-serif;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Bodega Sans";
+    src: url("../../M09-Wolf_Gang/fonts/BodegaSans_Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Font Awesome";
+    src: url("../../M09-Wolf_Gang/fonts/fontawesome-webfont.woff2") format("woff2"),
+        url("../../M09-Wolf_Gang/fonts/fontawesome-webfont.woff") format("woff"),
+        url("../../M09-Wolf_Gang/fonts/fontawesome-webfont.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: $clr-primaire;
+    background-image: url("../../M09-Wolf_Gang/img/bg_body.svg");
+    line-height: 2;
+}
+
+header {
+    // position: sticky;
+    // top: 0;
+    margin-inline: auto;
+    padding: 1rem;
+    width: 80%;
+    box-shadow: 1px 2px 5px rgba($color: #000000, $alpha: 0.5);
+    background-image: conic-gradient(from 70deg, $clr-fond-second 50%, white 50%);
+}
+
+.nav-bar {
+    @include flex-box;
+    width: 90%;
+    margin: 0 auto;
+    // align-items: center;
+    gap: 1rem;
+
+    // margin: 1rem;
+}
+
+.flex-control-nav,
+.flex-direction-nav .flex-prev,
+.flex-direction-nav .flex-next {
+    display: none;
+}
+
+nav {
+    // font-size: 2.5rem;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            text-align: right;
+
+            a {
+                display: inline-block;
+                font-size: 2.5rem;
+                font-family: Bodega Sans;
+                text-decoration: none;
+                color: $clr-fond;
+                transition: 1s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+main {
+    @include center;
+    margin-bottom: 5rem;
+
+    img,
+    video {
+        width: 100%;
+    }
+}
+
+@mixin titre {
+    padding: 1rem;
+    font-family: "Bodega Sans";
+    text-transform: uppercase;
+    color: $clr-para;
+
+    span {
+        color: $clr-second;
+    }
+}
+
+h1 {
+    @include titre;
+    font-size: 4rem;
+    box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.5) inset;
+    text-align: center;
+}
+
+h2 {
+    @include titre;
+    font-size: 3rem;
+    box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.5) inset;
+}
+
+h3 {
+    @include titre;
+    margin: 1rem;
+    border-bottom: 2px solid $clr-second;
+    font-size: 2.5rem;
+    text-align: center;
+    color: $clr-second;
+}
+
+figure {
+    padding: 2rem;
+    background-color: $clr-fond;
+    margin: 1.5rem 1rem;
+    text-align: center;
+
+    img {
+        width: 100%;
+    }
+
+    figcaption {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+
+    a {
+        display: block;
+        padding: 1rem;
+        border: 1px solid $clr-second;
+        text-decoration: none;
+        text-align: center;
+        background-color: $clr-second;
+        color: $clr-fond;
+        transition: 1s;
+
+        &:hover {
+            border: 1px solid $clr-second;
+            background-color: #f5f5f5;
+            color: $clr-second;
+            transform: scale(1.005);
+        }
+    }
+}
+
+.detail {
+    margin-bottom: 2rem;
+
+    p {
+        text-align: center;
+        color: $clr-para;
+    }
+
+    .font-icon {
+        @include flex-box;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: 2rem 0;
+
+        a {
+            span {
+                border-radius: 10px;
+                font-size: 2.5rem;
+                color: $clr-fond;
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 1.5rem;
+    text-align: center;
+    color: $clr-para;
+    box-shadow: -2px -2px 10px rgba($color: #000000, $alpha: 0.5);
+    width: 85%;
+    margin: 0 auto;
+
+    h4 {
+        @include titre;
+        font-size: 2rem;
+        margin: 0.5rem;
+    }
+
+    a {
+        color: #f5f5f5;
+    }
+}
+
+.foot {
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem;
+        flex-wrap: wrap;
+        list-style: none;
+        padding-left: 0;
+
+        a {
+            color: #f5f5f5;
+        }
+    }
+}
+
+.foote {
+    img {
+        width: 50px;
+    }
+}
+
+@media screen and (min-width: 680px) and (max-width: 980px) {
+    header {
+        width: 90%;
+        background-image: conic-gradient(from 40deg, $clr-fond-second 50%, white 50%);
+    }
+
+    .nav-bar {
+        flex-direction: row;
+        align-items: center;
+
+        .logo {
+            img {
+                width: 80%;
+            }
+        }
+
+        nav {
+            a {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 981px) {
+    header {
+        width: 100%;
+        background-image: conic-gradient(from 40deg, $clr-fond-second 50%, white 50%);
+    }
+
+    .nav-bar {
+        flex-direction: row;
+        align-items: center;
+
+        .logo {
+            img {
+                width: 100%;
+            }
+        }
+
+        nav {
+            a {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .article {
+        display: flex;
+    }
+
+    .grid-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .detail {
+        p{
+            text-align: left;
+        }
+        .font-icon{
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 50%;
+            margin: 2.5rem 1rem;
+        }
+    }
+
+    .footer {
+        width: 100%;
+    }
+
+    .foot {
+        ul {
+            justify-content: center;
+            gap: 3rem;
+
+            a {
+                color: #f5f5f5;
+            }
+        }
+    }
+}
